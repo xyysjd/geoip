@@ -1,0 +1,105 @@
+{
+  "input": [
+    {
+      "type": "maxmindMMDB",
+      "action": "add",
+      "args": {
+        "uri": "https://github.com/ameizi/geoip/raw/main/GeoLite2-Country.mmdb"
+      }
+    },
+    {
+      "type": "cutter",
+      "action": "remove",
+      "args": {
+        "wantedList": ["cn"]
+      }
+    },
+    { 
+      "type": "text",
+      "action": "add",
+      "args": {
+        "inputDir": "./data"
+       }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "cn",
+        "uri": "https://github.com/ChanthMiao/China-IPv6-List/raw/release/cn6.txt",
+        "onlyIPType": "ipv6"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "cloudflare",
+        "uri": "https://www.cloudflare.com/ips-v4",
+        "onlyIPType": "ipv4"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "cloudflare",
+        "uri": "https://www.cloudflare.com/ips-v6",
+        "onlyIPType": "ipv6"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "telegram",
+        "uri": "https://core.telegram.org/resources/cidr.txt"
+      }
+    },
+    {
+      "type": "private",
+      "action": "add"
+    }
+  ],
+  "output": [
+    {
+      "type": "v2rayGeoIPDat",
+      "action": "output",
+      "args": {
+        "outputName": "geoip-lite.dat",
+        "wantedList": ["cn", "private"]
+      }
+    },
+    {
+      "type": "v2rayGeoIPDat",
+      "action": "output",
+      "args": {
+        "outputName": "geoip.dat"
+      }
+    },
+    {
+      "type": "maxmindMMDB",
+      "action": "output",
+      "args": {
+        "outputName": "Country-lite.mmdb",
+        "wantedList": ["cn", "private"]
+      }
+    },
+    {
+      "type": "maxmindMMDB",
+      "action": "output",
+      "args": {
+        "outputName": "Country.mmdb",
+        "overwriteList": [
+          "cn",
+          "private",
+          "cloudflare",
+          "google",
+          "netflix",
+          "telegram",
+          "twitter"
+        ]
+      }
+    }
+  ]
+}
