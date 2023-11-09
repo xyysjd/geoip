@@ -53,6 +53,8 @@ jobs:
           curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Surge/Netflix/Netflix_Resolve.list | grep -E "IP-CIDR,|IP-CIDR6," | sed 's/IP-CIDR,//g; s/IP-CIDR6,//g' > data/netflix
           curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Surge/WeChat/WeChat_Resolve.list | grep -E "IP-CIDR,|IP-CIDR6," | sed 's/IP-CIDR,//g; s/IP-CIDR6,//g' > data/wechat
           curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Surge/Twitter/Twitter_Resolve.list | grep -E "IP-CIDR,|IP-CIDR6," | sed 's/IP-CIDR,//g; s/IP-CIDR6,//g' > data/twitter
+          curl -sSL https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Surge/Disney/Disney.list | grep -E "IP-CIDR,|IP-CIDR6," | sed 's/IP-CIDR,//g; s/IP-CIDR6,//g' > data/disney
+          curl -sSL https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Surge/YouTube/YouTube.list | grep -E "IP-CIDR,|IP-CIDR6," | sed 's/IP-CIDR,//g; s/IP-CIDR6,//g' > data/youtube
 
       - name: Build geoip files
         run: |
