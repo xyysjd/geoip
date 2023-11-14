@@ -28,7 +28,7 @@ jobs:
       - name: Workflow runs delete
         uses: InfraWay/delete-workflow-runs@v2.1.2
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.xyysjd_TOKEN }}
           repository: ${{ github.repository }}
           retain_days: 0
           keep_minimum_runs: 3
